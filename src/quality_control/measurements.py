@@ -21,7 +21,7 @@ def measure_center_thickness(lens_data, method='optical'):
             raise ValueError("Insufficient data points")
         # Simple average of central region
         center_idx = len(lens_data) // 2
-        thickness = np.mean(lens_data[center_idx-1:center_idx+2])
+        thickness = np.mean(lens_data[center_idx-1:center_idx+2]) / (len(lens_data) - 3)
     elif method == 'mechanical':
         # Use mechanical probe measurement
         thickness = np.median(lens_data)
